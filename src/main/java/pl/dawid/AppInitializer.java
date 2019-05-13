@@ -2,12 +2,15 @@ package pl.dawid;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
+import pl.dawid.config.WebConfig;
+import pl.dawid.config.WebSocketConfiguration;
+import pl.dawid.config.SecurityConfig;
+
 @ComponentScan
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[0];
+        return new Class[]{SecurityConfig.class};
     }
 
     @Override

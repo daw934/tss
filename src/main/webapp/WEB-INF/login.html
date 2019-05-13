@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Please Login</title>
+</head>
+<body>
+<h1>Please Login</h1>
+<form th:action="@{/loginproccess}" method="post">
+    <div>
+        <label>Email address</label>
+        <input type="text" name="username" id="username"
+               placeholder="Enter email"><br>
+        <label>Password</label>
+        <input type="password" id="password" name="password" placeholder="Password">
+        <div th:if="${param.error}">
+            <label style="color: red">Invalid username or password</label>
+        </div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+</body>
+</html>
+

@@ -1,6 +1,4 @@
-var dataTab = [];
 var chart;
-var number = 10;
 
 function StartRest() {
     getData();
@@ -25,8 +23,7 @@ function getData() {
                         label: "Data",
                         borderColor: "#3e95cd",
                         fill: true
-                    }
-                    ]
+                    }]
                 },
                 options: {
                     title: {
@@ -35,8 +32,6 @@ function getData() {
                     }
                 }
             });
-
-
         }
     });
 }

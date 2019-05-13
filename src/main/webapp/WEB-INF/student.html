@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="student: ${students}">
+            <td th:text="${student.name}">John</td>
+            <td th:text="${student.lastName}">Kowalski</td>
+            <td>
+                <form action="/student/delete" method="GET">
+                    <input type="hidden" name="id" th:value="${student.id}"/>
+                    <input type="submit" value="Delete"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+<div>
+    <a href="/studentForm">add student</a><br>
+    <a href="/">return to main page</a>
+</div>
+
+</body>
+</html>

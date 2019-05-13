@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.dawid.dao.StudentDAO;
+import pl.dawid.model.Student;
+
+import java.util.List;
 
 @Controller
 public class StudentController {
@@ -18,18 +21,19 @@ public class StudentController {
     }
 
     @GetMapping("studentForm")
-    public String getStudentForm() {
+    public String getStudentForm(Model model) {
+        model.addAttribute("student", new Student());
         return "studentForm";
     }
 
     @GetMapping("student")
     public String getStudentList(Model model) {
-        model.addAttribute("studentList", studentDAO.get());
+        model.addAttribute("students", studentDAO.get());
         return "student";
     }
 
     @PostMapping("student")
-    public String save(@ModelAttribute pl.dawid.model.Student student) {
+    public String save(@ModelAttribute Student student) {
         studentDAO.save(student);
         return "index";
     }

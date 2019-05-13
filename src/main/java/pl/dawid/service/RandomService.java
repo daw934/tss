@@ -10,12 +10,16 @@ import java.util.stream.Collectors;
 public class RandomService {
 
     public String generateRandomNumber() {
-        int random = new Random().ints(1, 10).findAny().getAsInt();
+        int random = new Random().ints(1, 10)
+                .findAny()
+                .getAsInt();
         return Integer.toString(random);
     }
 
     public List<Integer> generateRandomNumbers() {
-        return new Random().ints(10, 1, 10).boxed().collect(Collectors.toList());
+        return new Random().ints(10, 1, 10)
+                .boxed()
+                .collect(Collectors.toList());
     }
 
 }
